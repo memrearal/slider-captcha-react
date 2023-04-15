@@ -1,9 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
+import { useState, useEffect, useRef } from 'react';
 import { LoadingIcon } from './icons';
-import Challenge from './challenge';
+import { TextType } from './ReactSliderCaptcha';
+import Challenge from './Challenge';
 
-const Card = ({ text, fetchCaptcha, submitResponse }) => {
+interface CardProps {
+  text: TextType;
+  fetchCaptcha: () => Promise<any>;
+  submitResponse: (response: any, trail: any) => Promise<any>;
+  hasReloadButton?: boolean;
+}
+
+function Card(props: CardProps) {
+  const { text, fetchCaptcha, submitResponse, hasReloadButton } = props;
   const [key, setKey] = useState(Math.random());
   const [captcha, setCaptcha] = useState(false);
   const isMounted = useRef(false);
@@ -17,7 +25,7 @@ const Card = ({ text, fetchCaptcha, submitResponse }) => {
       }, 300);
     });
   };
-  const completeCaptcha = (response, trail) =>
+  const completeCaptcha = (response: any, trail: any) =>
     new Promise((resolve) => {
       submitResponse(response, trail).then((verified) => {
         if (verified) {
@@ -32,7 +40,9 @@ const Card = ({ text, fetchCaptcha, submitResponse }) => {
   useEffect(() => {
     isMounted.current = true;
     refreshCaptcha();
-    return () => { isMounted.current = false; };
+    return () => {
+      isMounted.current = false;
+    };
   }, []);
 
   return (
@@ -43,6 +53,8 @@ const Card = ({ text, fetchCaptcha, submitResponse }) => {
           text={text}
           captcha={captcha}
           completeCaptcha={completeCaptcha}
+          reloadCaptcha={refreshCaptcha}
+          hasReloadButton={hasReloadButton}
         />
       ) : (
         <div className="scaptcha-card-loading scaptcha-card-element">
@@ -51,15 +63,6 @@ const Card = ({ text, fetchCaptcha, submitResponse }) => {
       )}
     </div>
   );
-};
-
-Card.propTypes = {
-  fetchCaptcha: PropTypes.func.isRequired,
-  submitResponse: PropTypes.func.isRequired,
-  text: PropTypes.shape({
-    anchor: PropTypes.string,
-    challenge: PropTypes.string,
-  }).isRequired,
-};
+}
 
 export default Card;

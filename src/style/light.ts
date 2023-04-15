@@ -1,8 +1,8 @@
-const darkTheme = `.scaptcha-icon-light {
+const lightTheme = `.scaptcha-icon-dark {
   display: none;
 }
 
-.scaptcha-icon-dark {
+.scaptcha-icon-light {
   display: block;
 }
 
@@ -12,7 +12,7 @@ const darkTheme = `.scaptcha-icon-light {
   justify-content: left;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.12);
-  background-color: #1c1919;
+  background-color: #f8f8f8;
   width: 100%;
   height: 50px;
   padding: 13px;
@@ -29,7 +29,7 @@ const darkTheme = `.scaptcha-icon-light {
   border-radius: 3px;
   height: 24px;
   width: 24px;
-  background-color: #535353;
+  background-color: #fff;
 }
 
 .scaptcha-anchor-checkbox-default:hover {
@@ -44,15 +44,15 @@ const darkTheme = `.scaptcha-icon-light {
   display: flex;
   align-items: center;
   justify-content: left;
-  color: #c6c6c6;
+  color: #424242;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   margin-left: 13px;
   cursor: default;
 }
 
 .scaptcha-card-background {
-  width: 250px;
-  height: 150px;
+  width: 350px;
+  height: 200px;
 }
 
 .scaptcha-card-loading {
@@ -63,26 +63,27 @@ const darkTheme = `.scaptcha-icon-light {
   position: absolute;
   top: 0;
   left: 0;
-  min-width: 250px;
-  min-height: 150px;
+  min-width: 350px;
+  min-height: 200px;
   z-index: 1;
 }
 
 .scaptcha-card-container {
   position: absolute;
   padding: 15px 15px 0px 15px;
-  min-width: 280px;
-  min-height: 216px;
-  background-color: #1a1a1a;
+  min-width: 380px;
+  min-height: 266px;
+  background-color: #f1f1f1;
   box-shadow: 0px -1px 0px -2px rgba(0, 0, 0, 0.2), 0px 2px 9px 0px rgba(0, 0, 0, 0.14), 0px 5px 9px 0px rgba(0, 0, 0, 0.15);
-  margin-top: -260px;
-  margin-left: -7px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @media only screen and (max-width: 639px) {
   .scaptcha-card-container {
     left: 50%;
-    margin-left: -140px;
+    margin-left: -190px;
   }
 }
 .scaptcha-card-slider-puzzle {
@@ -91,7 +92,7 @@ const darkTheme = `.scaptcha-icon-light {
   position: absolute;
   left: 5px;
   top: 0;
-  height: 150px;
+  height: 200px;
   width: 60px;
   cursor: pointer;
 }
@@ -111,7 +112,7 @@ const darkTheme = `.scaptcha-icon-light {
 }
 
 .scaptcha-card-slider-control-default {
-  background-color: #242222;
+  background-color: #fafafa;
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
 
@@ -126,18 +127,18 @@ const darkTheme = `.scaptcha-icon-light {
 }
 
 .scaptcha-card-slider-control-success {
-  background-color: #35dd74;
+  background-color: rgb(53, 221, 116);
 }
 
 .scaptcha-card-slider-control-failure {
-  background-color: #e40808;
+  background-color: rgb(228, 8, 8);
 }
 
 .scaptcha-card-slider-container {
   margin-top: 7px;
   position: relative;
   height: 44px;
-  width: 250px;
+  width: 350px;
 }
 
 .scaptcha-card-slider-track {
@@ -145,10 +146,19 @@ const darkTheme = `.scaptcha-icon-light {
   position: absolute;
   top: 3px;
   left: 0;
-  width: 250px;
+  width: 350px;
   height: 24px;
-  background-color: #353535;
+  background-color: #d9d9d9;
   border-radius: 12px;
+}
+
+.scaptcha-card-reload-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
 }
 
 .scaptcha-card-slider-mask {
@@ -168,11 +178,11 @@ const darkTheme = `.scaptcha-icon-light {
 }
 
 .scaptcha-card-slider-track-success {
-  background-color: #83f788;
+  background-color: rgb(131, 247, 136);
 }
 
 .scaptcha-card-slider-track-failure {
-  background-color: #ff3c3c;
+  background-color: rgb(255, 60, 60);
 }
 
 .scaptcha-card-slider-label {
@@ -187,7 +197,7 @@ const darkTheme = `.scaptcha-icon-light {
   position: absolute;
   top: 3px;
   left: 0;
-  width: 250px;
+  width: 350px;
   height: 24px;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   cursor: default;
@@ -216,4 +226,4 @@ const darkTheme = `.scaptcha-icon-light {
   box-sizing: border-box;
 }
 `;
-export default darkTheme;
+export default lightTheme;

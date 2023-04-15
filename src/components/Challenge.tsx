@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useState } from 'react';
 import { ArrowIcon, SuccessIcon, FailureIcon } from './icons';
+import ReloadIcon from './icons/ReloadIcon';
+import { TextType } from './ReactSliderCaptcha';
 
-const imageDataUrl = (image) =>
+const imageDataUrl = (image: any) =>
   `data:image/png;base64,${Buffer.from(image).toString('base64')}`;
 
 const slider = {
@@ -28,7 +29,17 @@ const slider = {
   },
 };
 
-const Challenge = ({ text, captcha, completeCaptcha }) => {
+interface ChallengeProps {
+  text: TextType;
+  captcha: any;
+  completeCaptcha: (response: number, trail: any) => Promise<any>;
+  reloadCaptcha: () => void;
+  hasReloadButton?: boolean;
+}
+
+function Challenge(props: ChallengeProps) {
+  const { text, captcha, completeCaptcha, reloadCaptcha, hasReloadButton } =
+    props;
   const [sliderVariant, setSliderVariant] = useState(slider.default);
   const [solving, setSolving] = useState(false);
   const [submittedResponse, setSubmittedResponse] = useState(false);
@@ -42,9 +53,9 @@ const Challenge = ({ text, captcha, completeCaptcha }) => {
   });
 
   // Converts distances along the control track to corresponding distances moved by the puzzle piece
-  const scaleSliderPosition = (x) => 5 + 0.86 * x;
+  const scaleSliderPosition = (x: number) => 5 + 0.86 * x;
 
-  const handleStart = (e) => {
+  const handleStart = (e: any) => {
     if (submittedResponse) return;
     setOrigin({
       x: e.clientX || e.touches[0].clientX,
@@ -54,13 +65,13 @@ const Challenge = ({ text, captcha, completeCaptcha }) => {
     setSliderVariant(slider.active);
   };
 
-  const handleMove = (e) => {
+  const handleMove = (e: any) => {
     if (!solving || submittedResponse) return;
     const move = {
       x: (e.clientX || e.touches[0].clientX) - origin.x,
       y: (e.clientY || e.touches[0].clientY) - origin.y,
     };
-    if (move.x > 225 || move.x < 0) return; // Don't update if outside bounds of captcha
+    if (move.x > 325 || move.x < 0) return; // Don't update if outside bounds of captcha
     setTrail({
       x: trail.x.concat([move.x]),
       y: trail.y.concat([move.y]),
@@ -104,6 +115,15 @@ const Challenge = ({ text, captcha, completeCaptcha }) => {
           backgroundImage: `url('${imageDataUrl(captcha.background)}')`,
         }}
       />
+      {hasReloadButton && (
+        <div
+          className=".scaptcha-card-reload-button scaptcha-card-element"
+          onClick={reloadCaptcha}
+        >
+          <ReloadIcon />
+        </div>
+      )}
+
       <div
         className="scaptcha-card-slider-puzzle scaptcha-card-element"
         style={{
@@ -142,24 +162,6 @@ const Challenge = ({ text, captcha, completeCaptcha }) => {
       </div>
     </div>
   );
-};
-
-Challenge.propTypes = {
-  completeCaptcha: PropTypes.func.isRequired,
-  captcha: PropTypes.shape({
-    slider: PropTypes.shape({
-      type: PropTypes.string,
-      data: PropTypes.arrayOf(PropTypes.number),
-    }),
-    background: PropTypes.shape({
-      type: PropTypes.string,
-      data: PropTypes.arrayOf(PropTypes.number),
-    }),
-  }).isRequired,
-  text: PropTypes.shape({
-    anchor: PropTypes.string,
-    challenge: PropTypes.string,
-  }).isRequired,
-};
+}
 
 export default Challenge;

@@ -21,8 +21,8 @@
   justify-content: left;
 }
 
-$width: 250px;
-$height: 150px;
+$width: 350px;
+$height: 200px;
 $slider-width: 60px;
 $anchor-padding: 13px;
 $card-padding: 15px;
@@ -85,24 +85,22 @@ $anchor-height: 50px;
   }
 
   .scaptcha-card-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: 999;
+    position: absolute;
     padding: $card-padding $card-padding 0px $card-padding;
     min-width: $width + 2 * $card-padding;
     min-height: $height + 66px;
     background-color: map.get($colors, 'card-background');
     box-shadow: 0px -1px 0px -2px rgba(0, 0, 0, 0.2),
       0px 2px 9px 0px rgba(0, 0, 0, 0.14), 0px 5px 9px 0px rgba(0, 0, 0, 0.15);
-    margin-top: -110px - $height;
-    margin-left: -7px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   @media only screen and (max-width: 639px) {
     .scaptcha-card-container {
       left: 50%;
-      margin-left: - ($width / 2) - $card-padding;
+      margin-left: - calc($width / 2) - $card-padding;
     }
   }
 
@@ -171,7 +169,16 @@ $anchor-height: 50px;
     width: $width;
     height: $track-height;
     background-color: map.get($colors, 'card-track-background');
-    border-radius: $track-height / 2;
+    border-radius: calc($track-height / 2);
+  }
+
+  .scaptcha-card-reload-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
   }
 
   .scaptcha-card-slider-mask {
@@ -181,7 +188,7 @@ $anchor-height: 50px;
     left: 0;
     width: 0;
     height: $track-height;
-    border-radius: $track-height / 2;
+    border-radius: calc($track-height / 2);
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   }
 
