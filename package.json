@@ -1,12 +1,8 @@
 {
   "name": "@memrearal/slider-captcha-react",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "User-friendly puzzle slider captcha for React",
   "main": "index.js",
-  "files": [
-    "/lib",
-    "/index.js"
-  ],
   "scripts": {
     "test": "jest",
     "lint": "eslint ./",

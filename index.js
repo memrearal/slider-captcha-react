@@ -1,1 +1,3 @@
-module.exports = require('./lib');
+import SliderCaptcha from './src/slider-captcha';
+
+export default SliderCaptcha;
