@@ -8,7 +8,7 @@
     "sass": "sass --no-source-map src",
     "scripts": "ts-node ./scripts/themes.ts",
     "prepack": "npm run build",
-    "build": "npm run lint && npm run sass && npm run scripts && rollup -c",
+    "build": "npm run lint && npm run sass && npm run scripts && rollup --bundleConfigAsCjs -c",
     "watch": "rollup -cw"
   },
   "main": "./lib/cjs/index.js",

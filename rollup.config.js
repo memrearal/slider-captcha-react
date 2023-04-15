@@ -13,7 +13,7 @@ export default {
     },
     {
       file: './lib/esm/index.js',
-      format: 'es',
+      format: 'esm',
     },
   ],
   external: [...Object.keys(pkg.peerDependencies || {})],
