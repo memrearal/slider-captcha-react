@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { TextType } from './ReactSliderCaptcha';
 interface AnchorProps {
     text: TextType;
@@ -9,5 +8,5 @@ interface AnchorProps {
     hasOutsideClick?: boolean;
     hideButton?: boolean;
 }
-declare function Anchor(props: AnchorProps): JSX.Element;
+declare function Anchor(props: AnchorProps): import("react/jsx-runtime").JSX.Element;
 export default Anchor;

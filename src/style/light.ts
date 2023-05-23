@@ -80,12 +80,6 @@ const lightTheme = `.scaptcha-icon-dark {
   transform: translate(-50%, -50%);
 }
 
-@media only screen and (max-width: 639px) {
-  .scaptcha-card-container {
-    left: 50%;
-    margin-left: -190px;
-  }
-}
 .scaptcha-card-slider-puzzle {
   margin-left: 15px;
   margin-top: 15px;

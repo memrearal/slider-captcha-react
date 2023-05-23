@@ -1,3 +1,2 @@
-/// <reference types="react" />
-declare function FailureIcon(): JSX.Element;
+declare function FailureIcon(): import("react/jsx-runtime").JSX.Element;
 export default FailureIcon;

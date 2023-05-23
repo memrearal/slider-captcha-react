@@ -1,3 +1,2 @@
-/// <reference types="react" />
-declare function ReloadIcon(): JSX.Element;
+declare function ReloadIcon(): import("react/jsx-runtime").JSX.Element;
 export default ReloadIcon;

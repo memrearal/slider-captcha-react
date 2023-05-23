@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export interface TextType {
     anchor: string;
     challenge: string;
@@ -13,5 +12,5 @@ interface ReactSliderCaptchaProps {
     hasOutsideClick?: boolean;
     hideButton?: boolean;
 }
-declare const SliderCaptcha: (props: ReactSliderCaptchaProps) => JSX.Element;
+declare const SliderCaptcha: (props: ReactSliderCaptchaProps) => import("react/jsx-runtime").JSX.Element;
 export default SliderCaptcha;

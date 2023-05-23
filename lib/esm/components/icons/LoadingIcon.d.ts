@@ -1,3 +1,2 @@
-/// <reference types="react" />
-declare function LoadingIcon(): JSX.Element;
+declare function LoadingIcon(): import("react/jsx-runtime").JSX.Element;
 export default LoadingIcon;

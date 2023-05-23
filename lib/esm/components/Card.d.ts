@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { TextType } from './ReactSliderCaptcha';
 interface CardProps {
     text: TextType;
@@ -6,5 +5,5 @@ interface CardProps {
     submitResponse: (response: any, trail: any) => Promise<any>;
     hasReloadButton?: boolean;
 }
-declare function Card(props: CardProps): JSX.Element;
+declare function Card(props: CardProps): import("react/jsx-runtime").JSX.Element;
 export default Card;

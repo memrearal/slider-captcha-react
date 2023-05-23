@@ -1,3 +1,2 @@
-/// <reference types="react" />
-declare function SuccessIcon(): JSX.Element;
+declare function SuccessIcon(): import("react/jsx-runtime").JSX.Element;
 export default SuccessIcon;

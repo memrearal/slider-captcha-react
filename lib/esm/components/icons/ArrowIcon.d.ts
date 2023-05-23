@@ -1,3 +1,2 @@
-/// <reference types="react" />
-declare function ArrowIcon(): JSX.Element;
+declare function ArrowIcon(): import("react/jsx-runtime").JSX.Element;
 export default ArrowIcon;

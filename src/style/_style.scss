@@ -97,13 +97,6 @@ $anchor-height: 50px;
     transform: translate(-50%, -50%);
   }
 
-  @media only screen and (max-width: 639px) {
-    .scaptcha-card-container {
-      left: 50%;
-      margin-left: - calc($width / 2) - $card-padding;
-    }
-  }
-
   .scaptcha-card-slider-puzzle {
     margin-left: $card-padding;
     margin-top: $card-padding;

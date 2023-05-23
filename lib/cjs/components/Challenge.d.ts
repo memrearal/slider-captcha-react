@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { TextType } from './ReactSliderCaptcha';
 interface ChallengeProps {
     text: TextType;
@@ -7,5 +6,5 @@ interface ChallengeProps {
     reloadCaptcha: () => void;
     hasReloadButton?: boolean;
 }
-declare function Challenge(props: ChallengeProps): JSX.Element;
+declare function Challenge(props: ChallengeProps): import("react/jsx-runtime").JSX.Element;
 export default Challenge;

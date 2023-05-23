@@ -1,6 +1,6 @@
 {
   "name": "@memrearal/slider-captcha-react",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "User-friendly puzzle slider captcha for React",
   "scripts": {
     "lint": "eslint . --ext .ts,.tsx",
